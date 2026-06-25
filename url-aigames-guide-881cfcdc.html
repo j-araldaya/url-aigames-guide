@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ayx · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf8f5;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fffcf9;
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            border: 1px solid #ebe6df;
+        }
+
+        /* hero 主视觉 */
+        .hero {
+            text-align: center;
+            padding: 2rem 0 1.5rem 0;
+            border-bottom: 1px dashed #d9d0c6;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #4a3f38;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #8a7e74;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #ebe3da;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #5a4e44;
+            margin-top: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 卡片组 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            flex: 1 1 220px;
+            background: #f6f1eb;
+            padding: 1.5rem 1.2rem;
+            border-radius: 20px;
+            border-left: 4px solid #cbb7a6;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4f423a;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dotted #d4c8bc;
+            padding-bottom: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #4f463e;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #d9cdbf;
+            color: #3f352e;
+            font-size: 0.75rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+        }
+
+        /* 适合人群卡片 */
+        .audience-box {
+            background: #f2ede6;
+            padding: 1.8rem 1.8rem 1.5rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid #e2d7cc;
+        }
+
+        .audience-box h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #4f423a;
+            margin-bottom: 1rem;
+        }
+
+        .audience-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .audience-item {
+            background: #fffbf7;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #dcd0c4;
+            font-size: 0.9rem;
+            color: #4d4139;
+        }
+
+        /* 引用块 / 提示框 */
+        .inset-note {
+            background: #ede7df;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border-left: 6px solid #b7a291;
+            font-size: 0.95rem;
+            color: #3d352e;
+        }
+
+        .inset-note strong {
+            color: #4f3f34;
+        }
+
+        .quote-block {
+            background: #f4efe9;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            border-left: 6px solid #cdbcab;
+            margin: 1.8rem 0;
+            font-style: normal;
+            color: #3f3730;
+        }
+
+        .quote-block p {
+            margin-bottom: 0.2rem;
+        }
+
+        .quote-block .source {
+            font-size: 0.85rem;
+            color: #7f6f61;
+            margin-top: 0.3rem;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #faf5ef;
+            padding: 1.2rem 1.5rem;
+            border-radius: 18px;
+            margin: 1.8rem 0;
+            border: 1px solid #ded3c8;
+            line-height: 1.8;
+        }
+
+        .link-paragraph a {
+            color: #6b5543;
+            text-decoration: none;
+            border-bottom: 1px solid #b7a291;
+            font-weight: 400;
+            transition: border-color 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            border-bottom-color: #4f3f34;
+        }
+
+        /* 普通链接样式（非强制） */
+        a {
+            color: #6b5543;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c4b6;
+        }
+
+        a:hover {
+            border-bottom-color: #4f3f34;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.2rem 0 0.5rem 0;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #4f423a;
+            border-bottom: 1px solid #e2d7cc;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.4rem 0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #4a3d34;
+        }
+
+        .faq-item .a {
+            color: #5b4f45;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6ddd2;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8f8276;
+            margin-top: 2.5rem;
+            border-top: 1px solid #e6ddd2;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                flex-direction: column;
+            }
+            .card {
+                flex: 1 1 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>ayx</h1>
+        <div class="sub">一个整理好的稳定入口 · 页面说明</div>
+        <span class="badge">信息卡片式 · 清晰平实</span>
+    </div>
+
+    <!-- 介绍段落：稳定入口的角度 -->
+    <p style="margin-bottom: 1rem; font-size: 1rem; color: #3f3730;">
+        无论是日常访问还是需要快速定位，一个稳定、直接的入口能省去很多不必要的跳转和迷惑。
+        下面从几个维度整理了关于 <strong>ayx</strong> 的说明，内容围绕页面结构、用途场景以及适合人群展开，没有夸张修辞，只有认真梳理后的信息。
+    </p>
+
+    <!-- 用途卡片：三个信息卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>页面导航</h3>
+            <p>清晰的层级与入口，减少重复查找。适合需要固定访问路径的用户。</p>
+            <span class="tag">稳定访问</span>
+        </div>
+        <div class="card">
+            <h3>场景适配</h3>
+            <p>无论是日常浏览还是信息核对，页面结构都为常见操作做了优化。</p>
+            <span class="tag">通用型</span>
+        </div>
+        <div class="card">
+            <h3>轻量说明</h3>
+            <p>不堆砌术语，用平实的文字把功能和定位讲清楚，方便新用户理解。</p>
+            <span class="tag">友好入门</span>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-box">
+        <h2>适合人群</h2>
+        <div class="audience-items">
+            <span class="audience-item">需要固定入口的日常用户</span>
+            <span class="audience-item">希望了解页面结构的新访客</span>
+            <span class="audience-item">偏好清晰信息卡片的阅读者</span>
+            <span class="audience-item">不愿被复杂导航困扰的人</span>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #5a4f45;">
+            这里没有花哨的引导，只有整理好的索引与说明。
+        </p>
+    </div>
+
+    <!-- 引用块 / 提示框 1: 关于稳定入口 -->
+    <div class="inset-note">
+        <strong>📌 提示：</strong> 页面设计遵循“少干扰、多信息”的原则。所有卡片与段落均为直接说明，
+        不设置弹窗或强制跳转。如果你需要一个不绕弯子的访问起点，下面这部分会有所帮助。
+    </div>
+
+    <!-- 自然链接段落：将 ayx 链接嵌入句子（要求6：文本严格等于 ayx） -->
+    <div class="link-paragraph">
+        <p>
+            如果你正在寻找一个可以直接前往的站点，那么 
+            <a href="https://url-aigames.com.cn">ayx</a> 
+            是整理后的稳定地址。这个页面围绕它做了信息卡片式的拆解，包括用途、人群以及常见问题摘要。
+            链接文本仅作标识，没有附加任何多余描述，保持干净直接。
+        </p>
+    </div>
+
+    <!-- 第二个引用块 / 提示框：内容与节奏变化 -->
+    <div class="quote-block">
+        <p>“信息的价值在于它被组织过，而不在于它被渲染得多华丽。”</p>
+        <div class="source">—— 页面排版笔记</div>
+    </div>
+
+    <!-- FAQ 摘要（非完整FAQ，仅摘要风格） -->
+    <div class="faq-summary">
+        <h3>FAQ 摘要 · 快速了解</h3>
+        <div class="faq-item">
+            <span class="q">Q: 这个页面主要说明什么？</span>
+            <div class="a">A: 围绕 <strong>ayx</strong> 的稳定入口，整理用途、人群以及页面本身的定位，不包含推广内容。</div>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q: 信息卡片式是什么意思？</span>
+            <div class="a">A: 把重点拆成小块卡片，配合背景和引用框，方便快速浏览，而不是长文堆砌。</div>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q: 页面会经常变动吗？</span>
+            <div class="a">A: 结构保持稳定，内容只做事实性整理，不会频繁更改入口信息。</div>
+        </div>
+    </div>
+
+    <!-- 额外自然段落，再次出现 ayx 链接（但避免与上面完全相同句式） -->
+    <p style="margin: 1.8rem 0 0.5rem 0; font-size: 0.95rem; color: #4d423a;">
+        另外，如果你是通过其他途径了解到这个站点，可以直接使用 
+        <a href="https://url-aigames.com.cn">ayx</a> 
+        作为书签地址。本页所有说明均基于稳定访问与清晰整理两个原则编写。
+    </p>
+
+    <hr>
+
+    <!-- 结尾 -->
+    <div class="footer-note">
+        信息卡片式 · 米白背景 · 引用块提示 · 内容真实克制<br>
+        <span style="font-size: 0.7rem; color: #a99b8d;">页面版本 · 朝 2025</span>
+    </div>
+</div>
+</body>
+</html>
