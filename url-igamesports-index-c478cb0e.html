@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏体育 · 轻导航介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f2f4f6;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- 顶部导航 ----- */
+    .top-nav {
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #dce0e5;
+      background-color: #f2f4f6;
+    }
+    .top-nav .site-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      color: #1f3a5f;
+    }
+    .top-nav .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .top-nav .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .top-nav .nav-links a:hover {
+      color: #0f2c4d;
+    }
+
+    /* ----- hero（精简） ----- */
+    .hero {
+      margin: 48px 0 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1a2d44;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 18px auto 0;
+      color: #3e4b5e;
+      font-size: 1.05rem;
+    }
+
+    /* ----- 场景模块卡片 ----- */
+    .section-title {
+      margin: 48px 0 20px;
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: #1c2b3c;
+      border-left: 4px solid #1f3a5f;
+      padding-left: 16px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 28px 22px;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.03);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1e2c40;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #3f4d61;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* ----- 常见说明（FAQ 式） ----- */
+    .faq-block {
+      margin: 48px 0 40px;
+    }
+    .faq-block h2 {
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: #1c2b3c;
+      border-left: 4px solid #1f3a5f;
+      padding-left: 16px;
+      margin-bottom: 28px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e3e8ef;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+    }
+    .faq-item .question {
+      font-weight: 500;
+      color: #1a2c40;
+      margin-bottom: 4px;
+    }
+    .faq-item .answer {
+      color: #3d4b5f;
+      font-size: 0.93rem;
+    }
+
+    /* ----- 内联链接句子区 ----- */
+    .intro-text {
+      background: #ffffff;
+      border: 1px solid #e3e8ef;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin: 32px 0 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .intro-text p {
+      margin-bottom: 12px;
+      color: #364353;
+    }
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+    .intro-text a {
+      color: #1f3a5f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #bcc8da;
+      transition: border-color 0.2s;
+    }
+    .intro-text a:hover {
+      border-bottom-color: #1f3a5f;
+    }
+
+    /* ----- 页脚 ----- */
+    .footer {
+      border-top: 1px solid #dce0e5;
+      padding: 24px 0 36px;
+      text-align: center;
+      color: #5a687d;
+      font-size: 0.9rem;
+    }
+
+    /* ----- 响应式 ----- */
+    @media (max-width: 860px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 580px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .top-nav .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <span class="site-name">iGame体育</span>
+      <ul class="nav-links">
+        <li><a href="#section-intro">介绍</a></li>
+        <li><a href="#section-scenes">场景</a></li>
+        <li><a href="#section-faq">说明</a></li>
+      </ul>
+    </nav>
+
+    <!-- hero 区 -->
+    <div class="hero">
+      <h1>稳定入口 · 简明指引</h1>
+      <p>对于日常浏览与信息获取而言，一个可靠的路径往往比繁杂的跳转更重要。我们将围绕这一点展开。</p>
+    </div>
+
+    <!-- 核心介绍（自然嵌入链接） -->
+    <div class="intro-text" id="section-intro">
+      <p>如果你正在寻找一个信息集中、更新稳定的体育资讯站点，<a href="https://url-igamesports.com">爱游戏体育</a>是一个值得保持关注的地址。这个页面旨在介绍其基础定位与常见使用场景，帮助新接触的用户更快熟悉它。</p>
+      <p>站点本身以赛事动态、数据概览和实用信息为主，结构清晰，没有过多无关元素。在桌面端和移动端都能保持相对一致的浏览体验。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="section-scenes">适用场景</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>日常信息查阅</h3>
+        <p>无论是赛前资讯还是赛程回顾，主页都提供了直接入口，方便快速定位感兴趣的内容。版面分区合理，减少不必要的浏览步骤。</p>
+      </div>
+      <div class="card">
+        <h3>移动端轻浏览</h3>
+        <p>页面响应式适配较好，在手机浏览器中排版依然清晰。不需要频繁缩放或横向滚动，适合通勤或碎片时间使用。</p>
+      </div>
+      <div class="card">
+        <h3>多栏目切换</h3>
+        <p>通过顶部导航与分类标签，可以顺畅地在不同板块之间切换。每个栏目内容独立，不会干扰当前阅读状态。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明 FAQ 摘要 -->
+    <div class="faq-block" id="section-faq">
+      <h2>常见说明</h2>
+      <div class="faq-item">
+        <div class="question">Q：是否需要注册才能浏览？</div>
+        <div class="answer">大部分内容无需登录即可直接查看。部分互动功能可能需要账户，但阅读和导航不受限制。</div>
+      </div>
+      <div class="faq-item">
+        <div class="question">Q：页面加载速度怎么样？</div>
+        <div class="answer">整体资源控制得比较轻量，没有过多第三方请求。在常规网络下首页加载通常在三秒内完成。</div>
+      </div>
+      <div class="faq-item">
+        <div class="question">Q：与其他站点相比有什么特点？</div>
+        <div class="answer">更注重信息密度与结构简洁，去掉了一些华而不实的视觉元素。适合看重效率与稳定性的用户。</div>
+      </div>
+    </div>
+
+    <!-- 一段额外的克制的提示 -->
+    <p style="margin: 16px 0 32px; color: #475569; font-size: 0.92rem; text-align: center; border-top: 1px solid #e2e6ec; padding-top: 28px;">
+      页面内容基于实际使用体验整理，不构成任何承诺或保证。建议你亲自体验 <a href="https://url-igamesports.com" style="color: #1f3a5f; text-decoration: none; border-bottom: 1px solid #bcc8da;">爱游戏体育</a> 的界面与功能。
+    </p>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <span>本页为轻量导航介绍 · 信息更新于近期</span>
+    </footer>
+  </div>
+</body>
+</html>
